@@ -51,6 +51,7 @@ class FristPage extends StatelessWidget {
                   width: 300,
                   height: 300,
                   child: ListView.builder(
+                    
                     scrollDirection: Axis.horizontal,
                     itemCount: 100,
                     itemBuilder: (context, index) => Padding(
