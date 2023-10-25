@@ -1,259 +1,101 @@
-import 'package:coffee/core/config/get_it.dart';
-import 'package:coffee/pages/home_page.dart';
-import 'package:coffee/pages/login_page.dart';
+import 'package:coffee/view/builder_example_page.dart';
+import 'package:coffee/view/onboardgon_1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // setup();
-
   runApp(MyApp());
 }
 
-List<String> names = ["Abdlaziz", "Yaser", "Noor", "Abdlaziz"];
+PageController controller = PageController();
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home:FirstScreen()
+      home: FristPage()
     );
+      //   home: Scaffold(
+      //       body: PageView.builder(
+      // itemCount: pages.length,
+      // controller: controller,
+      // itemBuilder: (context, index) => pages[index],
+    // )));
   }
 }
-String name = '';
-class FirstScreen extends StatelessWidget {
-  const FirstScreen({
+
+List<Widget> pages = [FristPage(), FristPage(), Secondpage(), HomePage()];
+
+class Secondpage extends StatelessWidget {
+  const Secondpage({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListTile(
-
-        isThreeLine: true,
-        title: Text("Adipisicing id fugiat cupidatat tempor est aute."),
-        subtitle: Text(
-            'Laborum veniam dolore anim minim est officia. Tempor id fugiat ad culpa est. Enim adipisicing aliqua ipsum enim id et aute ut id quis ipsum sint cupidatat. Voluptate dolor laborum ad aliquip sit consequat duis aliqua fugiat. Culpa voluptate nulla ullamco reprehenderit ea ut tempor laboris ea.'),
+      body: Center(
+        child: InkWell(
+            onTap: () {
+              print(controller.page);
+              // controller.jumpTo(value);
+              controller.previousPage(
+                  duration: Duration(seconds: 1), curve: Curves.easeInCirc);
+            },
+            child: FlutterLogo()),
       ),
-      // body: SingleChildScrollView(
-      //   child: Column(
-      //     children: [
-      //       ListTile(
-      //         trailing: Icon(Icons.arrow_circle_down_outlined),
-      //         tileColor: const Color.fromARGB(255, 96, 94, 94),
-      //         leading: CircleAvatar(
-      //             child: Icon(
-      //           Icons.shopify,
-      //
-      //           // color: Colors.red,
-      //         )),
-      //         title: Text('ASAP, go to java since it is the best'),
-      //         subtitle: Text('app'),
-      //       ),
-      //       ListTile(
-      //         trailing: Icon(Icons.arrow_circle_down_outlined),
-      //         tileColor: const Color.fromARGB(255, 96, 94, 94),
-      //         leading: CircleAvatar(
-      //             child: Icon(
-      //           Icons.shopify,
-      //
-      //           // color: Colors.red,
-      //         )),
-      //         title: Text('ASAP, go to java since it is the best'),
-      //         subtitle: Text('app'),
-      //       ),
-      //       ListTile(
-      //         trailing: Icon(Icons.arrow_circle_down_outlined),
-      //         tileColor: const Color.fromARGB(255, 96, 94, 94),
-      //         leading: CircleAvatar(
-      //             child: Icon(
-      //           Icons.shopify,
-      //           // color: Colors.red,
-      //         )),
-      //         title: Text('ASAP, go to java since it is the best'),
-      //         subtitle: Text('app'),
-      //       ),
-      //       ListTile(
-      //         trailing: Icon(Icons.arrow_circle_down_outlined),
-      //         tileColor: const Color.fromARGB(255, 96, 94, 94),
-      //         leading: CircleAvatar(
-      //             child: Icon(
-      //           Icons.shopify,
-      //
-      //           // color: Colors.red,
-      //         )),
-      //         title: Text('ASAP, go to java since it is the best'),
-      //         subtitle: Text('app'),
-      //       ),
-      //       ListTile(
-      //         trailing: Icon(Icons.arrow_circle_down_outlined),
-      //         tileColor: const Color.fromARGB(255, 96, 94, 94),
-      //         leading: CircleAvatar(
-      //             child: Icon(
-      //           Icons.shopify,
-      //
-      //           // color: Colors.red,
-      //         )),
-      //         title: Text('ASAP, go to java since it is the best'),
-      //         subtitle: Text('app'),
-      //       ),
-      //       ListTile(
-      //         trailing: Icon(Icons.arrow_circle_down_outlined),
-      //         tileColor: const Color.fromARGB(255, 96, 94, 94),
-      //         leading: CircleAvatar(
-      //             child: Icon(
-      //           Icons.shopify,
-      //
-      //           // color: Colors.red,
-      //         )),
-      //         title: Text('ASAP, go to java since it is the best'),
-      //         subtitle: Text('app'),
-      //       ),
-      //       ListTile(
-      //         trailing: Icon(Icons.arrow_circle_down_outlined),
-      //         tileColor: const Color.fromARGB(255, 96, 94, 94),
-      //         leading: CircleAvatar(
-      //             child: Icon(
-      //           Icons.shopify,
-      //
-      //           // color: Colors.red,
-      //         )),
-      //         title: Text('ASAP, go to java since it is the best'),
-      //         subtitle: Text('app'),
-      //       ),
-      //       ListTile(
-      //         trailing: Icon(Icons.arrow_circle_down_outlined),
-      //         tileColor: const Color.fromARGB(255, 96, 94, 94),
-      //         leading: CircleAvatar(
-      //             child: Icon(
-      //           Icons.shopify,
-      //
-      //           // color: Colors.red,
-      //         )),
-      //         title: Text('ASAP, go to java since it is the best'),
-      //         subtitle: Text('app'),
-      //       ),
-      //       ListTile(
-      //         trailing: Icon(Icons.arrow_circle_down_outlined),
-      //         tileColor: const Color.fromARGB(255, 96, 94, 94),
-      //         leading: CircleAvatar(
-      //             child: Icon(
-      //           Icons.shopify,
-      //
-      //           // color: Colors.red,
-      //         )),
-      //         title: Text('ASAP, go to java since it is the best'),
-      //         subtitle: Text('app'),
-      //       ),
-      //       ListTile(
-      //         trailing: Icon(Icons.arrow_circle_down_outlined),
-      //         tileColor: const Color.fromARGB(255, 96, 94, 94),
-      //         leading: CircleAvatar(
-      //             child: Icon(
-      //           Icons.shopify,
-      //
-      //           // color: Colors.red,
-      //         )),
-      //         title: Text('ASAP, go to java since it is the best'),
-      //         subtitle: Text('app'),
-      //       ),
-      //       ListTile(
-      //         trailing: Icon(Icons.arrow_circle_down_outlined),
-      //         tileColor: const Color.fromARGB(255, 96, 94, 94),
-      //         leading: CircleAvatar(
-      //             child: Icon(
-      //           Icons.shopify,
-      //
-      //           // color: Colors.red,
-      //         )),
-      //         title: Text('ASAP, go to java since it is the best'),
-      //         subtitle: Text('app'),
-      //       ),
-      //       ListTile(
-      //         trailing: Icon(Icons.arrow_circle_down_outlined),
-      //         tileColor: const Color.fromARGB(255, 96, 94, 94),
-      //         leading: CircleAvatar(
-      //             child: Icon(
-      //           Icons.shopify,
-      //
-      //           // color: Colors.red,
-      //         )),
-      //         title: Text('ASAP, go to java since it is the best'),
-      //         subtitle: Text('app'),
-      //       ),
-      //       ListTile(
-      //         trailing: Icon(Icons.arrow_circle_down_outlined),
-      //         tileColor: const Color.fromARGB(255, 96, 94, 94),
-      //         leading: CircleAvatar(
-      //             child: Icon(
-      //           Icons.shopify,
-      //
-      //           // color: Colors.red,
-      //         )),
-      //         title: Text('ASAP, go to java since it is the best'),
-      //         subtitle: Text('app'),
-      //       ),
-      //     ],
-      //   ),
-      // ),
+    );
+  }
+}
 
-      // ? try to build self list tile
-      // body: Column(
-      //   children: [
-      //     Container(
-      //       child: Row(
-      //         children: [
-      //           Padding(
-      //             padding: const EdgeInsets.only(left: 20),
-      //             child: FlutterLogo(),
-      //           ),
-      //           Padding(
-      //             padding: const EdgeInsets.only(top: 20),
-      //             child: Column(
-      //               children: [
-      //                 Padding(
-      //                   padding: const EdgeInsets.all(8.0),
-      //                   child: Text('ASAP, go to java since it is the best',
-      //                       style: TextStyle(color: Colors.white)),
-      //                 ),
-      //                 Text('app', style: TextStyle(color: Colors.white))
-      //               ],
-      //             ),
-      //           )
-      //         ],
-      //       ),
-      //       height: 100,
-      //       decoration: BoxDecoration(
-      //           color: Color.fromARGB(255, 74, 71, 71),
-      //           borderRadius: BorderRadius.only(
-      //               bottomLeft: Radius.circular(10),
-      //               bottomRight: Radius.circular(10))),
-      //     )
-      //   ],
-      // ),
+List<String> names = [
+  "Ahmad",
+  "Yaser",
+  "Omar",
+  "Robeen",
+  "MHD",
+  "Majd",
+  "Dana",
+  "Masa",
+  "Amjad",
+  "Maya",
+  "Abd",
+  "Obada"
+];
 
-      // ? Decoration
-      // body: Center(
-      //   child: Container(
-      //     width: 300,
-      //     height: 300,
-      //     decoration: BoxDecoration(
-      //         gradient: LinearGradient(
-      //             colors: [Colors.blue, Colors.blue.shade200],
-      //             begin: Alignment.topRight,
-      //             end: Alignment.bottomLeft),
-      //         // shape: BoxShape.circle,
-      //         borderRadius: BorderRadius.only(
-      //             bottomLeft: Radius.circular(25),
-      //             topRight: Radius.circular(25)),
-      //         color: Colors.red,
-      //         border: Border.all(color: Colors.green, width: 2)),
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
+      body: ListView.builder(
+        itemCount: names.length,
+        itemBuilder: (context, index) => Card(
+          child: ListTile(
+            title: Text(names[index]),
+          ),
+        ),
+        // separatorBuilder: (context, ind) => Divider(),
+      ),
+
+
+
+      // body: ListView(children: [
+      //   ListTile(
+      //     title: Text("Nostrud consectetur fugiat pariatur sunt incididunt cupidatat ad eiusmod."),
+      //     subtitle: Text("Reprehenderit aliquip cillum incididunt cillum."),),
+      //   // ,Divider(color: Colors.red,thickness: 10,indent: 2,endIndent: 10,),
+      //   Divider(),
+
+      //   ListTile(
+      //     title: Text(
+      //         "Nostrud consectetur fugiat pariatur sunt incididunt cupidatat ad eiusmod."),
+      //     subtitle: Text("Reprehenderit aliquip cillum incididunt cillum."),
       //   ),
-      // ),
+      // ]),
     );
   }
 }
