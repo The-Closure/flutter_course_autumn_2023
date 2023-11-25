@@ -13,7 +13,7 @@ void main() {
     testWidgets('test for switch', (widgetTester) async {
       final switchTest = find.byKey(ValueKey('test switch'));
 
-      await widgetTester.pumpWidget(MaterialApp(home: HomePage()));
+      // await widgetTester.pumpWidget(MaterialApp(home: HomePage()));
 
       await widgetTester.enterText(
           find.byKey(ValueKey('username')), 'Easy Tester');
